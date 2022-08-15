@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:BasePage x:Class="DemoApp.Pages.TestPage2"
+                xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:DemoApp.Pages"
+                Title="Page 2">
+    <pages:BasePage.BasePageContent>
+        <Button Margin="25"
+                Clicked="Button_Clicked"
+                HorizontalOptions="CenterAndExpand"
+                Text="Go to page 3"
+                VerticalOptions="Center" />
+    </pages:BasePage.BasePageContent>
+</pages:BasePage>

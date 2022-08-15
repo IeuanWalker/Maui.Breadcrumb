@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32721.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{B4200167-FE8D-4B0D-8245-4455A34924B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp", "Demo\DemoApp\DemoApp.csproj", "{850FD389-45EF-4E0E-B2DF-FA5EB158771B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scr", "Scr", "{575C6A7C-090A-45F1-974F-33653546DE34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Breadcrumb", "Scr\StateButton\Breadcrumb.csproj", "{DB4A15EB-0E5B-42A6-9CF8-4C61378DA8B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{430D7583-975E-4F6D-92B6-8C5E45809EF9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Settings.XamlStyler = Settings.XamlStyler
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{850FD389-45EF-4E0E-B2DF-FA5EB158771B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{850FD389-45EF-4E0E-B2DF-FA5EB158771B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{850FD389-45EF-4E0E-B2DF-FA5EB158771B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{850FD389-45EF-4E0E-B2DF-FA5EB158771B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{850FD389-45EF-4E0E-B2DF-FA5EB158771B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{850FD389-45EF-4E0E-B2DF-FA5EB158771B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DB4A15EB-0E5B-42A6-9CF8-4C61378DA8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4A15EB-0E5B-42A6-9CF8-4C61378DA8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4A15EB-0E5B-42A6-9CF8-4C61378DA8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4A15EB-0E5B-42A6-9CF8-4C61378DA8B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{850FD389-45EF-4E0E-B2DF-FA5EB158771B} = {B4200167-FE8D-4B0D-8245-4455A34924B9}
+		{DB4A15EB-0E5B-42A6-9CF8-4C61378DA8B3} = {575C6A7C-090A-45F1-974F-33653546DE34}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {664BFC88-DD58-4B5D-8EB7-92FDCF648338}
+	EndGlobalSection
+EndGlobal
