@@ -1,4 +1,5 @@
 ﻿namespace DemoApp.Pages;
+
 public partial class TestPage2 : BasePage
 {
 	public TestPage2()

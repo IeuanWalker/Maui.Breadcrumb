@@ -33,6 +33,7 @@ public partial class Breadcrumb : ContentView
 
 	// FontSize
 	public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(Breadcrumb), 15d);
+
 	public double FontSize
 	{
 		get => (double)GetValue(FontSizeProperty);
@@ -121,11 +122,11 @@ public partial class Breadcrumb : ContentView
 	}
 
 	#endregion Control properties
+
 	public Breadcrumb()
 	{
 		InitializeComponent();
 	}
-
 
 	async void BreadCrumbContainer_Loaded(object sender, EventArgs e)
 	{
@@ -168,7 +169,7 @@ public partial class Breadcrumb : ContentView
 
 				continue;
 			}
-			
+
 			// Add ChildAdded event to trigger animation
 			BreadCrumbContainer.ChildAdded += AnimatedStack_ChildAdded;
 
