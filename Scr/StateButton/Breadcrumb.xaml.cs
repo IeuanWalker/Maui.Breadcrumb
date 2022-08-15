@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.Maui.Controls;
 
 namespace Breadcrumb;
 
@@ -145,7 +146,7 @@ public partial class Breadcrumb : ContentView
 			if (!page.Equals(pages.LastOrDefault()))
 			{
 				// Create breadcrumb
-				Frame breadCrumb1 = BreadCrumbLabelCreator(page, false, page.Equals(pages.FirstOrDefault()));
+				Border breadCrumb1 = BreadCrumbLabelCreator(page, false, page.Equals(pages.FirstOrDefault()));
 
 				// Add tap gesture
 				if (IsNavigationEnabled)
@@ -172,12 +173,12 @@ public partial class Breadcrumb : ContentView
 
 				continue;
 			}
-
+			
 			// Add ChildAdded event to trigger animation
 			BreadCrumbContainer.ChildAdded += AnimatedStack_ChildAdded;
 
 			// Create selectedPage title label
-			Frame breadCrumb2 = BreadCrumbLabelCreator(page, true, page.Equals(pages.FirstOrDefault()));
+			Border breadCrumb2 = BreadCrumbLabelCreator(page, true, page.Equals(pages.FirstOrDefault()));
 
 			// Move BreadCrumb of selectedPage to start the animation
 			breadCrumb2.TranslationX = Application.Current?.MainPage?.Width ?? 0;
@@ -200,10 +201,10 @@ public partial class Breadcrumb : ContentView
 	/// <param name="page"></param>
 	/// <param name="isLast"></param>
 	/// <param name="isFirst"></param>
-	Frame BreadCrumbLabelCreator(Page page, bool isLast, bool isFirst)
+	Border BreadCrumbLabelCreator(Page page, bool isLast, bool isFirst)
 	{
 		// Create StackLayout to contain the label within a PancakeView
-		StackLayout stackLayout = new()
+		VerticalStackLayout stackLayout = new()
 		{
 			VerticalOptions = LayoutOptions.Center,
 		};
@@ -233,19 +234,17 @@ public partial class Breadcrumb : ContentView
 			stackLayout.Children.Add(breadcrumbText);
 		}
 
-		Frame accessibilityContainer = new()
+		Border accessibilityContainer = new()
 		{
-			HasShadow = false,
 			BackgroundColor = Colors.Transparent,
 			Padding = 10,
 			VerticalOptions = LayoutOptions.Center,
 			Content = stackLayout
 		};
 
-		Frame container = new()
+		Border container = new()
 		{
-			CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius,
-			HasShadow = false,
+			//CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius,
 			Padding = 0,
 			Content = accessibilityContainer,
 			Margin = BreadcrumbMargin
