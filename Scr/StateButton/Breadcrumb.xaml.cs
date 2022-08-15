@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.Maui.Controls;
-
-namespace Breadcrumb;
+﻿namespace Breadcrumb;
 
 public partial class Breadcrumb : ContentView
 {
@@ -132,8 +129,6 @@ public partial class Breadcrumb : ContentView
 
 	async void BreadCrumbContainer_Loaded(object sender, EventArgs e)
 	{
-		Debug.WriteLine("Breadcrumb loaded");
-
 		// Get list of all pages in the NavigationStack that has a selectedPage title
 		List<Page> pages = Navigation.NavigationStack.Select(x => x).Where(x => !string.IsNullOrEmpty(x?.Title)).ToList();
 
