@@ -27,7 +27,7 @@
 
 # Maui.Breadcrumb [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FMaui.Breadcrumb.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FMaui.Breadcrumb?ref=badge_shield) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6736fa109a9c44b4a1654f1b629ad384)](https://www.codacy.com/gh/IeuanWalker/Maui.Breadcrumb/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=IeuanWalker/Maui.Breadcrumb&amp;utm_campaign=Badge_Grade)
 
 This is a breadcrumb navigation control that is completely automatic and uses the Navigation stack to get the page titles to generate the breadcrumbs.
 
