@@ -48,12 +48,12 @@
     <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
   
-	<!--<ItemGroup>
+	<ItemGroup>
 	  <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
-	</ItemGroup>-->
+	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="Breadcrumb.xaml.cs">
