@@ -9,6 +9,7 @@ on:
 env:
   NET_VERSION: 6.0.400
   PROJECT_PATH: 'Scr/Breadcrumb.csproj'
+  NUGET_PATH: './**/IeuanWalker.Maui.Breadcrumb.1.0.0.nupkg'
 
 jobs:
   build:
@@ -34,4 +35,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: NuGet
-        path: ./**/*.nupkg
+        path: ${{ env.NUGET_PATH }}

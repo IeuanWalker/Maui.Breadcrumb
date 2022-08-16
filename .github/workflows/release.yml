@@ -7,6 +7,7 @@ on:
 env:
   NET_VERSION: 6.0.400
   PROJECT_PATH: 'Scr/Breadcrumb.csproj'
+  NUGET_PATH: './**/IeuanWalker.Maui.Breadcrumb.${{ github.event.release.tag_name }}.nupkg'
 
 jobs:
   build:
@@ -32,4 +33,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: NuGet
-        path: ./**/IeuanWalker.Maui.Breadcrumb.${{ github.event.release.tag_name }}.nupkg
+        path: ${{ env.NUGET_PATH }}
