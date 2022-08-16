@@ -10,7 +10,7 @@ jobs:
   build:
     env:
       BUILD_CONFIG: 'Release'
-      PROJECT: '/Scr/StateButton/Breadcrumb.csproj'
+      PROJECT: './Scr/StateButton/Breadcrumb.csproj'
 
     runs-on: ubuntu-latest
 
