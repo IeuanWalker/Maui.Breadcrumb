@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
     
 env:
-  NET6_VERSION: 6.0.400
+  NET_VERSION: 6.0.400
 
 jobs:
   build:
