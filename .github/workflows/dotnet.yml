@@ -22,6 +22,8 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: $NET6_VERSION
+        
+        
     
     - name: PowerShell script
       uses: Amadevus/pwsh-script@v2.0.1
