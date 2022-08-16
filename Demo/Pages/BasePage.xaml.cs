@@ -1,4 +1,6 @@
-﻿namespace App.Pages;
+﻿using App.Resources.Styles;
+
+namespace App.Pages;
 
 public partial class BasePage : ContentPage
 {
