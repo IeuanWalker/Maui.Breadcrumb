@@ -19,7 +19,7 @@ jobs:
     - name: Setup .NET ${{ env.NET_VERSION }}
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: $NET6_VERSION
+        dotnet-version: ${{ env.NET_VERSION }}
         
     - name: Install .NET MAUI $NET6_VERSION
       run: dotnet workload install maui --ignore-failed-sources
