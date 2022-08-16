@@ -26,12 +26,12 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// FirstBreadCrumb
-	public static readonly BindableProperty FirstBreadCrumbProperty = BindableProperty.Create(nameof(FirstBreadCrumb), typeof(ImageSource), typeof(Breadcrumb), null);
+	public static readonly BindableProperty FirstBreadcrumbProperty = BindableProperty.Create(nameof(FirstBreadcrumb), typeof(ImageSource), typeof(Breadcrumb), null);
 
-	public ImageSource FirstBreadCrumb
+	public ImageSource FirstBreadcrumb
 	{
-		get => (ImageSource)GetValue(FirstBreadCrumbProperty);
-		set => SetValue(FirstBreadCrumbProperty, value);
+		get => (ImageSource)GetValue(FirstBreadcrumbProperty);
+		set => SetValue(FirstBreadcrumbProperty, value);
 	}
 
 	// Scrollbar Visibility
@@ -226,11 +226,11 @@ public partial class Breadcrumb : ContentView
 		AutomationProperties.SetIsInAccessibleTree(stackLayout, false);
 
 		// Create and Add label to StackLayout
-		if (isFirst && FirstBreadCrumb != null)
+		if (isFirst && FirstBreadcrumb != null)
 		{
 			stackLayout.Children.Add(new Image
 			{
-				Source = FirstBreadCrumb,
+				Source = FirstBreadcrumb,
 				VerticalOptions = LayoutOptions.Center
 			});
 		}
