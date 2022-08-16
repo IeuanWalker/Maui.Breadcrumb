@@ -27,6 +27,8 @@
 
 # Maui.Breadcrumb [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) 
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 This is a breadcrumb navigation control that is completely automatic and uses the Navigation stack to get the page titles to generate the breadcrumbs.
 
 The animation for the control is based on this article - [A Cool Breadcrumbs Bar with Xamarin Forms Animations…](https://theconfuzedsourcecode.wordpress.com/2017/02/04/a-cool-breadcrumbs-bar-with-xamarin-forms-animations/)
