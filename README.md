@@ -66,16 +66,17 @@ Next up, just add the breadcrumb control onto that page and you're all set.
 
 | Property | What it does | Extra info |
 |---|---|---- |
-| Separator | Sets the image source of the separator | This allows you to set the separator to `FontImageSource`, `UriImageSource` or `FileImageSource`. </br> Default is `new FontImageSource { Glyph = " / ", Color = Colors.Black, Size = 15, }` |
-| SeparatorHeight | Sets the image source of the separator | Default is `15` |
+| Separator | Sets the image source of the separator | This allows you to set the separator to `FontImageSource`, `UriImageSource` or `FileImageSource`. </br> Default is **new FontImageSource { Glyph = " / ", Color = Colors.Black, Size = 15, }** |
+| SeparatorHeight | Sets the image source of the separator | Default is **15** |
+| FirstBreadcrumb | Allows you to override the first breadcrumb and set an image source. F.e. This is usefull if you want the first breadcrumb to be a home icon instead of the default title. | Default will be a label like all the other breadcrumbs |
 | ScrollBarVisibility | Sets the HorizontalScrollBarVisibility of the scrollview | More info here [ScrollBarVisibility](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.scrollbarvisibility?view=xamarin-forms). Default value is **ScrollBarVisibility.Never** |
 | FontSize | Sets the text font size for the breadcrumb | Default value is **15**. <br>Support [`NamedSize`](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.namedsize?view=xamarin-forms) |
 | TextColor | Sets the text color for the breadcrumb and seperator   | A `Color` object. <br> Default value is **black**. <br>*(doesnt include the last breadcrumb)* |
-| CornerRadius | A `CornerRadius` object representing each individual corner's radius for each breadcrumb. <br> This property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView) | Uses the `CornerRadius` struct allowing you to specify individual corners. <br> Default value is **10**. <br> *(doesnt include the last breadcrumb)* |
+| CornerRadius | A `CornerRadius` object representing each individual corner's radius for each breadcrumb. | Uses the `CornerRadius` struct allowing you to specify individual corners. <br> Default value is **10**. <br> *(doesnt include the last breadcrumb)* |
 | BreadcrumbMargin | A `Thickness` object used to define the spacing between the breadcrumb and separators | Uses the `Thickness` struct allowing you to specify left, top, right and bottom margin |
 | BreadcrumbBackgroundColor | This is the background color for the individual breadcrumbs | A `Color` object. <br> Default value is **Transparent**. <br> *(doesnt include the last breadcrumb)* |
 | LastBreadcrumbTextColor | Sets the text color for the last breadcrumb | A Color object. <br> Default value is **black**. |
-| LastBreadcrumbCornerRadius | A `CornerRadius` object representing each individual corner's radius. <br> This is property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView) | Uses the `CornerRadius` struct allowing you to specify individual corners. <br> Default value is **10**. |
+| LastBreadcrumbCornerRadius | A `CornerRadius` object representing each individual corner's radius.| Uses the `CornerRadius` struct allowing you to specify individual corners. <br> Default value is **10**. |
 | LastBreadcrumbBackgroundColor | Sets the background color of the last breadcrumbs |  A Color object. <br> Default value is **Transparent**. |
 | AnimationSpeed | Sets the speed of the animated breadcrumb | Default value is **800**. <br> Set to 0 to disable the animation. |
 | IsNavigationEnabled | Used to remove the tab gesture from breadcrumbs | Default value is **True**|
@@ -101,7 +102,7 @@ It implements the Xamarin.Forms ImageSource object.
 
 Font - (FontAwesome)
 ```xml
-<breadcrumb:Breadcrumb Padding="15" VerticalOptions="Start">
+<breadcrumb:Breadcrumb>
     <breadcrumb:Breadcrumb.Separator>
         <FontImageSource FontFamily="{StaticResource FontAwesome}"
                             Glyph="{x:Static icons:IconFont.ChevronRight}"
@@ -113,7 +114,7 @@ Font - (FontAwesome)
 
 Image - URL
 ```xml
-<breadcrumb:Breadcrumb Padding="15" VerticalOptions="Start">
+<breadcrumb:Breadcrumb>
     <breadcrumb:Breadcrumb.Separator>
         <UriImageSource Uri="https://cdn.iconscout.com/icon/free/png-256/xamarin-4-599473.png" />
     </breadcrumb:Breadcrumb.Separator>
@@ -122,7 +123,7 @@ Image - URL
 
 Image - Embedded
 ```xml
-<breadcrumb:Breadcrumb Padding="15" VerticalOptions="Start">
+<breadcrumb:Breadcrumb>
     <breadcrumb:Breadcrumb.Separator>
         <FileImageSource File="exampleImage.png" />
     </breadcrumb:Breadcrumb.Separator>
