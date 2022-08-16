@@ -1,4 +1,4 @@
-| :memo:        | This is a MAUI version of my [Xamarin nuget](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)      |
+| :memo:        | This is a MAUI version of my [Xamarin NuGet](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)      |
 |---------------|:------------------------|
 
 <table>
@@ -13,18 +13,16 @@
   <tbody>
     <tr>
       <td>
-         NuGet is in preview at the moment. There are several reason its in preview at the moment -
+         NuGet is in preview at the moment. There are several reasons its in preview -
         <ul>
           <li>There is a bug in MAUI preventing the StackLayout within the scrollview from filling the width, this means the breadcrumb doesnt animate in from outside the screen, more info here - https://github.com/dotnet/maui/issues/9446</li>
-          <li>It's not fully accessible</li>
-          <li>I havnt tested iOS yet</li>
+          <li>It's not fully accessible <i>yet</i></li>
+          <li>I havnt tested iOS <i>yet</i></li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
-
-
 
 
 # Maui.Breadcrumb 
@@ -42,24 +40,16 @@ Basic example             |  Production Example
 ## How to use it?
 Install the [NuGet package](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb) into all of your projects 
 ```
-Install-Package Xamarin.Forms.Breadcrumb
-```
-
-For iOS add the following to AppDelegate.cs > FinishedLaunching
-```csharp
-BreadcrumbButtonRenderer.Init();
+Install-Package IeuanWalker.Maui.Breadcrumb
 ```
 
 To add to a page the first thing we need to do is tell our XAML page where it can find the Breadcrumb control, which is done by adding the following attribute to our ContentPage:
 
 ```xml
-<ContentPage x:Class="DemoApp.Pages.BasePage"
-             xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="App.Pages.BasePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d">
+             xmlns:breadcrumb="clr-namespace:Breadcrumb;assembly=Breadcrumb">
     <ContentPage.Content>
         ...
     </ContentPage.Content>
@@ -69,14 +59,16 @@ To add to a page the first thing we need to do is tell our XAML page where it ca
 Next up, just add the breadcrumb control onto that page and you're all set.
 
 ```xml
-<breadcrumb:Breadcrumb Padding="15" VerticalOptions="Start" />
+<breadcrumb:Breadcrumb />
 ```
 
 ## What can I do with it?
 
 | Property | What it does | Extra info |
 |---|---|---- |
-| ScrollBarVisibility | Sets the HorizontalScrollBarVisibility of the scrollview | More info here [ScrollBarVisibility](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.scrollbarvisibility?view=xamarin-forms). Default value is **ScrollBarVisibility.Never**
+| Separator | Sets the image source of the separator | This allows you to set the separator to `FontImageSource`, `UriImageSource` or `FileImageSource`. </br> Default is `new FontImageSource { Glyph = " / ", Color = Colors.Black, Size = 15, }` |
+| SeparatorHeight | Sets the image source of the separator | Default is `15` |
+| ScrollBarVisibility | Sets the HorizontalScrollBarVisibility of the scrollview | More info here [ScrollBarVisibility](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.scrollbarvisibility?view=xamarin-forms). Default value is **ScrollBarVisibility.Never** |
 | FontSize | Sets the text font size for the breadcrumb | Default value is **15**. <br>Support [`NamedSize`](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.namedsize?view=xamarin-forms) |
 | TextColor | Sets the text color for the breadcrumb and seperator   | A `Color` object. <br> Default value is **black**. <br>*(doesnt include the last breadcrumb)* |
 | CornerRadius | A `CornerRadius` object representing each individual corner's radius for each breadcrumb. <br> This property exposed from [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView) | Uses the `CornerRadius` struct allowing you to specify individual corners. <br> Default value is **10**. <br> *(doesnt include the last breadcrumb)* |
