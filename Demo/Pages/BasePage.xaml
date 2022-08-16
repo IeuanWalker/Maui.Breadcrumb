@@ -12,24 +12,50 @@
 
             <!-- Production -->
             <Label Text="Production version" TextColor="{DynamicResource Text}" />
-            <breadcrumb:Breadcrumb Margin="0"
-                                   Padding="0"
-                                   BackgroundColor="Transparent"
-                                   BreadcrumbBackgroundColor="#FCFCFC"
-                                   CornerRadius="6"
-                                   FontSize="Small"
-                                   LastBreadcrumbBackgroundColor="#FCFCFC"
-                                   LastBreadcrumbCornerRadius="6"
-                                   LastBreadcrumbTextColor="#595959"
-                                   TextColor="#086c6d"
-                                   VerticalOptions="Start">
-                <breadcrumb:Breadcrumb.Separator>
-                    <FontImageSource FontFamily="FASolid900"
-                                     Glyph="&#xf054;"
-                                     Size="12"
-                                     Color="#086c6d" />
-                </breadcrumb:Breadcrumb.Separator>
-            </breadcrumb:Breadcrumb>
+            <Grid x:Name="Breadcrumb"
+                  Grid.Row="1"
+                  BackgroundColor="{DynamicResource BreadcrumBackground}"
+                  ColumnDefinitions="auto,*"
+                  RowDefinitions="auto,1"
+                  RowSpacing="0">
+                <Border Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="10,10,0,0"
+                        AutomationProperties.IsInAccessibleTree="True">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Border.GestureRecognizers>
+                    <Label FontFamily="FASolid900"
+                           FontSize="18"
+                           Text="&#xf015;"
+                           TextColor="{DynamicResource TextAccentColour}" />
+                </Border>
+                <breadcrumb:Breadcrumb Grid.Row="0"
+                                       Grid.Column="1"
+                                       Margin="0"
+                                       Padding="0"
+                                       BackgroundColor="Transparent"
+                                       BreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
+                                       CornerRadius="6"
+                                       FontSize="Small"
+                                       LastBreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
+                                       LastBreadcrumbCornerRadius="6"
+                                       LastBreadcrumbTextColor="{DynamicResource TextSilverColour}"
+                                       TextColor="{DynamicResource TextAccentColour}"
+                                       VerticalOptions="Start">
+                    <breadcrumb:Breadcrumb.Separator>
+                        <FontImageSource FontFamily="FASolid900"
+                                         Glyph="&#xf054;"
+                                         Size="12"
+                                         Color="{DynamicResource TextAccentColour}" />
+                    </breadcrumb:Breadcrumb.Separator>
+                </breadcrumb:Breadcrumb>
+                <BoxView Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         BackgroundColor="{DynamicResource DividerGradientEndColour}"
+                         HeightRequest="1" />
+            </Grid>
 
             <!-- Dynamic test -->
             <Label Text="Dynamic Tests" TextColor="{DynamicResource Text}" />

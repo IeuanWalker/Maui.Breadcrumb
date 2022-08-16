@@ -1,6 +1,4 @@
-﻿using App.Resources.Styles;
-
-namespace App.Pages;
+﻿namespace App.Pages;
 
 public partial class BasePage : ContentPage
 {
@@ -9,5 +7,10 @@ public partial class BasePage : ContentPage
 	public BasePage()
 	{
 		InitializeComponent();
+	}
+
+	async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+	{
+		await Navigation.PopToRootAsync();
 	}
 }
