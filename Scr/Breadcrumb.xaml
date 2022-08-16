@@ -4,21 +4,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Padding="15"
              AutomationProperties.IsInAccessibleTree="False"
-             BackgroundColor="Red"
              IsVisible="False">
     <ContentView.Content>
         <ScrollView x:Name="BreadCrumbsScrollView"
                     AutomationProperties.IsInAccessibleTree="False"
-                    BackgroundColor="Blue"
                     HorizontalScrollBarVisibility="{Binding ScrollBarVisibility, Source={RelativeSource AncestorType={x:Type ContentView}}}"
                     Orientation="Horizontal">
             <HorizontalStackLayout x:Name="BreadCrumbContainer"
                                    AutomationProperties.IsInAccessibleTree="False"
-                                   BackgroundColor="Green"
                                    HorizontalOptions="Fill"
                                    Loaded="BreadCrumbContainer_Loaded"
-                                   VerticalOptions="Center"
-                                   WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=WidthRequest}" />
+                                   VerticalOptions="Center" />
         </ScrollView>
     </ContentView.Content>
 </ContentView>

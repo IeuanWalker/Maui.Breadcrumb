@@ -1,4 +1,6 @@
-﻿namespace Breadcrumb;
+﻿using System.ComponentModel;
+
+namespace Breadcrumb;
 
 public partial class Breadcrumb : ContentView
 {
@@ -33,7 +35,7 @@ public partial class Breadcrumb : ContentView
 
 	// FontSize
 	public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(Breadcrumb), 15d);
-
+	[TypeConverter(typeof(FontSizeConverter))]
 	public double FontSize
 	{
 		get => (double)GetValue(FontSizeProperty);
@@ -237,8 +239,8 @@ public partial class Breadcrumb : ContentView
 
 		Border accessibilityContainer = new()
 		{
-			BackgroundColor = Colors.Transparent,
 			Padding = 10,
+			Stroke = Colors.Transparent,
 			VerticalOptions = LayoutOptions.Center,
 			Content = stackLayout
 		};
@@ -246,7 +248,8 @@ public partial class Breadcrumb : ContentView
 		Border container = new()
 		{
 			//CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius,
-			Padding = 0,
+			Padding = 0, 
+			Stroke = Colors.Transparent,
 			Content = accessibilityContainer,
 			Margin = BreadcrumbMargin
 		};
