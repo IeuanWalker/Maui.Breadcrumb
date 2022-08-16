@@ -19,7 +19,7 @@ public partial class BasePage : ContentPage
 		ToolbarItems.Add(toolBarItem);
 
 		TapGestureRecognizer tapGestureRecognizer = new();
-		tapGestureRecognizer.Tapped += async (s, e) => await Navigation.PopToRootAsync();
+		tapGestureRecognizer.Tapped += async (_, e) => await Navigation.PopToRootAsync();
 		HomeButton.GestureRecognizers.Add(tapGestureRecognizer);
 	}
 

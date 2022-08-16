@@ -98,7 +98,9 @@
             <!-- UriImageSource -->
             <Label Text="Image - URL" TextColor="{DynamicResource Text}" />
             <breadcrumb:Breadcrumb Padding="15"
+                                   LastBreadcrumbTextColor="{DynamicResource Text}"
                                    SeparatorHeight="30"
+                                   TextColor="{DynamicResource Text}"
                                    VerticalOptions="Start">
                 <breadcrumb:Breadcrumb.Separator>
                     <UriImageSource Uri="https://cdn.iconscout.com/icon/free/png-256/xamarin-4-599473.png" />
