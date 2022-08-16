@@ -27,7 +27,7 @@ jobs:
       run: dotnet workload install maui --ignore-failed-sources
         
     - name: Restore dependencies
-      run: dotnet restore $PROJECT
+      run: dotnet restore ${{ env.PROJECT_PATH }}
       
     - name: Build
       run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore

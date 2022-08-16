@@ -25,15 +25,15 @@ jobs:
       run: dotnet workload install maui --ignore-failed-sources
         
     - name: Restore dependencies
-      run: dotnet restore $PROJECT
+      run: dotnet restore ${{ env.PROJECT_PATH }}
       
     - name: Build
       run: dotnet build ${{ env.PROJECT_PATH }} -c Release /p:Version=${{ github.event.release.tag_name }} --no-restore
       
-    - uses: actions/upload-artifact@v3
-      with:
-        name: NuGet
-        path: ${{ env.NUGET_PATH }}
+    #- uses: actions/upload-artifact@v3
+    #  with:
+    #    name: NuGet
+    #    path: ${{ env.NUGET_PATH }}
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.6
