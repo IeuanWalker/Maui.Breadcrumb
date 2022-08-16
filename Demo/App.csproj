@@ -50,19 +50,4 @@
 	  <ProjectReference Include="..\Scr\StateButton\Breadcrumb.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="Pages\BasePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\TestPage1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\TestPage2.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\TestPage3.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
 </Project>
