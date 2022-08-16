@@ -10,7 +10,7 @@ jobs:
   build:
     env:
       BUILD_CONFIG: 'Release'
-      SOLUTION: 'MySolution.sln'
+      SOLUTION: 'Maui.Breadcrumb.sln'
 
     runs-on: ubuntu-latest
 
