@@ -18,13 +18,11 @@
                   ColumnDefinitions="auto,*"
                   RowDefinitions="auto,1"
                   RowSpacing="0">
-                <Border Grid.Row="0"
+                <Border x:Name="HomeButton"
+                        Grid.Row="0"
                         Grid.Column="0"
                         Margin="10,10,0,0"
                         AutomationProperties.IsInAccessibleTree="True">
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                    </Border.GestureRecognizers>
                     <Label FontFamily="FASolid900"
                            FontSize="18"
                            Text="&#xf015;"
