@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-android;net6.0-ios;</TargetFrameworks>
 		<OutputType>Exe</OutputType>
-		<RootNamespace>DemoApp</RootNamespace>
+		<RootNamespace>App</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>

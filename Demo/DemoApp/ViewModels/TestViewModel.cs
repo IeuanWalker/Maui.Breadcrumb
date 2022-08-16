@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace DemoApp.ViewModels;
+namespace App.ViewModels;
 
 [INotifyPropertyChanged]
 public partial class TestViewModel

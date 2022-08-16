@@ -1,6 +1,6 @@
-﻿using DemoApp.Pages;
+﻿using App.Pages;
 
-namespace DemoApp;
+namespace App;
 
 public partial class App : Application
 {

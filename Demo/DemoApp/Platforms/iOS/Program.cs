@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace DemoApp;
+namespace App;
 
 public class Program
 {

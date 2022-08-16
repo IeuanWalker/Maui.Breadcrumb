@@ -1,4 +1,4 @@
-﻿namespace DemoApp.Pages;
+﻿namespace App.Pages;
 
 public partial class BasePage : ContentPage
 {

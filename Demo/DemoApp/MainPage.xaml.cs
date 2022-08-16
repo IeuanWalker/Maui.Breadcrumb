@@ -1,4 +1,4 @@
-﻿namespace DemoApp;
+﻿namespace App;
 
 public partial class MainPage : ContentPage
 {
