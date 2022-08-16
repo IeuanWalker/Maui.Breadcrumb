@@ -8,6 +8,7 @@ on:
     
 env:
   NET_VERSION: 6.0.400
+  PROJECT_PATH: 'Scr/StateButton/Breadcrumb.csproj'
 
 jobs:
   build:
@@ -28,9 +29,9 @@ jobs:
       run: dotnet restore $PROJECT
       
     - name: Build
-      run: dotnet build Scr/StateButton/Breadcrumb.csproj -c Release --no-restore
+      run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
       
     - uses: actions/upload-artifact@v3
       with:
-        name: my-artifact
+        name: NuGet
         path: ./**
