@@ -170,6 +170,11 @@ public partial class Breadcrumb : ContentView
 				continue;
 			}
 
+			if (BreadCrumbContainer.Children.Count > 0)
+			{
+				await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false);
+			}
+
 			// Add ChildAdded event to trigger animation
 			BreadCrumbContainer.ChildAdded += AnimatedStack_ChildAdded;
 
@@ -260,7 +265,11 @@ public partial class Breadcrumb : ContentView
 	/// <param name="e"></param>
 	async void AnimatedStack_ChildAdded(object? sender, ElementEventArgs e)
 	{
-		await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false);
+		// iOS scroll to end fix
+		if (DeviceInfo.Platform.Equals(DevicePlatform.iOS))
+		{
+			await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false);
+		}
 
 		Animation lastBreadcrumbAnimation = new()
 		{
@@ -269,7 +278,7 @@ public partial class Breadcrumb : ContentView
 
 		Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children.Last(), ScrollToPosition.End);
 		lastBreadcrumbAnimation.Add(0, 1, new Animation(_ => BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, true), BreadCrumbsScrollView.X, point.X - 6));
-
+		
 		lastBreadcrumbAnimation.Commit(this, nameof(lastBreadcrumbAnimation), 16, AnimationSpeed);
 	}
 
