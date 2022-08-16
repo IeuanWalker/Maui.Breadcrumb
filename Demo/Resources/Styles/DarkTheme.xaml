@@ -12,4 +12,9 @@
     <Color x:Key="LastBreadcrumbBackground">#000</Color>
     <Color x:Key="BreadcrumbTextColour">#bdbdbd</Color>
     <Color x:Key="LastBreadcrumbTextColour">#fff</Color>
+
+    <Color x:Key="BreadcrumBackground">#034647</Color>
+    <Color x:Key="TextAccentColour">#fff</Color>
+    <Color x:Key="TextSilverColour">#eeeeee</Color>
+    <Color x:Key="DividerGradientEndColour">#043031</Color>
 </ResourceDictionary>
