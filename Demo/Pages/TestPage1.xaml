@@ -4,11 +4,7 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:pages="clr-namespace:App.Pages"
                 Title="Page 1">
-    <pages:BasePage.ToolbarItems>
-        <ToolbarItem x:Name="ThemeToggle"
-                     Clicked="ThemeToggle_Clicked"
-                     Text="Light" />
-    </pages:BasePage.ToolbarItems>
+
     <pages:BasePage.BasePageContent>
         <Button Margin="25"
                 Clicked="Button_Clicked"
