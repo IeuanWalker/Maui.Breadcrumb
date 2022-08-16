@@ -8,7 +8,7 @@ on:
     
 env:
   NET_VERSION: 6.0.400
-  PROJECT_PATH: 'Scr/StateButton/Breadcrumb.csproj'
+  PROJECT_PATH: 'Scr/Breadcrumb.csproj'
 
 jobs:
   build:
