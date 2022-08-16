@@ -9,8 +9,6 @@ on:
 jobs:
   build:
     env:
-      BUILD_CONFIG: 'Release'
-      PROJECT: './Scr/StateButton/Breadcrumb.csproj'
       NET6_VERSION: 6.0.400
 
     runs-on: ubuntu-latest
@@ -30,7 +28,7 @@ jobs:
       run: dotnet restore $PROJECT
       
     - name: Build
-      run: dotnet build $PROJECT --configuration $BUILD_CONFIG --no-restore
+      run: dotnet build Scr/StateButton/Breadcrumb.csproj -c Release --no-restore
       
     - uses: actions/upload-artifact@v3
       with:
