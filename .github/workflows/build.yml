@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+    
+env:
+  NET_VERSION: 6.0.400
+  PROJECT_PATH: 'Scr/Breadcrumb.csproj'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET ${{ env.NET_VERSION }}
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: ${{ env.NET_VERSION }}
+        
+    - name: Install .NET MAUI ${{ env.NET_VERSION }}
+      run: dotnet workload install maui --ignore-failed-sources
+        
+    - name: Restore dependencies
+      run: dotnet restore $PROJECT
+      
+    - name: Build
+      run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
+      
+    - uses: actions/upload-artifact@v3
+      with:
+        name: NuGet
+        path: ./**
