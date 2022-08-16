@@ -25,6 +25,7 @@
 </table>
 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8893845ed9bc4f208def01baae7cb6c6)](https://app.codacy.com/gh/IeuanWalker/Maui.Breadcrumb?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/Maui.Breadcrumb&utm_campaign=Badge_Grade_Settings)
 # Maui.Breadcrumb [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FMaui.Breadcrumb.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FMaui.Breadcrumb?ref=badge_shield)
