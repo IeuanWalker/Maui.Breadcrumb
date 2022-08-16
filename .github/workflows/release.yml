@@ -35,5 +35,8 @@ jobs:
         name: NuGet
         path: ${{ env.NUGET_PATH }}
 
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.6
+      
     - name: Publish
         run: nuget push ${{ env.NUGET_PATH }} -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
