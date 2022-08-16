@@ -40,6 +40,10 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
 	<!--<ItemGroup>
 	  <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
 	    <PrivateAssets>all</PrivateAssets>
