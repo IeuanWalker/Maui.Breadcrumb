@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Setup .NET ${{ env.NET6_VERSION }}
+    - name: Setup .NET ${{ env.NET_VERSION }}
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: $NET6_VERSION
