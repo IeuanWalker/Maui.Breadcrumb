@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Microsoft.Maui.Controls.Shapes;
 
 namespace Breadcrumb;
 
@@ -35,6 +36,7 @@ public partial class Breadcrumb : ContentView
 
 	// FontSize
 	public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(Breadcrumb), 15d);
+
 	[TypeConverter(typeof(FontSizeConverter))]
 	public double FontSize
 	{
@@ -231,7 +233,7 @@ public partial class Breadcrumb : ContentView
 				VerticalOptions = LayoutOptions.Center,
 				VerticalTextAlignment = TextAlignment.Center
 			};
-			breadcrumbText.SetBinding(Label.TextColorProperty, new Binding(isLast ? nameof(LastBreadcrumbTextColor) : nameof(TextColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
+			breadcrumbText.SetBinding(TextColorProperty, new Binding(isLast ? nameof(LastBreadcrumbTextColor) : nameof(TextColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 			AutomationProperties.SetIsInAccessibleTree(breadcrumbText, false);
 
 			stackLayout.Children.Add(breadcrumbText);
@@ -247,8 +249,11 @@ public partial class Breadcrumb : ContentView
 
 		Border container = new()
 		{
-			//CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius,
-			Padding = 0, 
+			StrokeShape = new RoundRectangle
+			{
+				CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius
+			},
+			Padding = 0,
 			Stroke = Colors.Transparent,
 			Content = accessibilityContainer,
 			Margin = BreadcrumbMargin
@@ -281,7 +286,7 @@ public partial class Breadcrumb : ContentView
 
 		Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children.Last(), ScrollToPosition.End);
 		lastBreadcrumbAnimation.Add(0, 1, new Animation(_ => BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, true), BreadCrumbsScrollView.X, point.X - 6));
-		
+
 		lastBreadcrumbAnimation.Commit(this, nameof(lastBreadcrumbAnimation), 16, AnimationSpeed);
 	}
 

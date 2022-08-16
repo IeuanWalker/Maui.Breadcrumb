@@ -1,6 +1,4 @@
-﻿using App.Resources.Styles;
-
-namespace App.Pages;
+﻿namespace App.Pages;
 
 public partial class TestPage1 : BasePage
 {
@@ -13,6 +11,4 @@ public partial class TestPage1 : BasePage
 	{
 		await Navigation.PushAsync(new TestPage2(), true);
 	}
-
 }
-

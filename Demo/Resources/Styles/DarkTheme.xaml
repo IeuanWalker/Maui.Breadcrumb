@@ -8,13 +8,15 @@
 
     <Color x:Key="Text">#fff</Color>
 
+    <!-- Production test -->
     <Color x:Key="BreadcrumbBackground">#37474f</Color>
-    <Color x:Key="LastBreadcrumbBackground">#000</Color>
-    <Color x:Key="BreadcrumbTextColour">#bdbdbd</Color>
-    <Color x:Key="LastBreadcrumbTextColour">#fff</Color>
-
-    <Color x:Key="BreadcrumBackground">#034647</Color>
     <Color x:Key="TextAccentColour">#fff</Color>
     <Color x:Key="TextSilverColour">#eeeeee</Color>
     <Color x:Key="DividerGradientEndColour">#043031</Color>
+
+    <!-- Dynamic test -->
+    <Color x:Key="DynamicTextColor">Black</Color>
+    <Color x:Key="DynamicBreadcrumbBackgroundColor">Red</Color>
+    <Color x:Key="DynamicLastBreadcrumbTextColor">Blue</Color>
+    <Color x:Key="DynamicLastBreadcrumbBackgroundColor">LightGray</Color>
 </ResourceDictionary>

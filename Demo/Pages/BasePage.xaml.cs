@@ -18,7 +18,6 @@ public partial class BasePage : ContentPage
 		toolBarItem.Clicked += ThemeToggle_Clicked;
 		ToolbarItems.Add(toolBarItem);
 
-
 		TapGestureRecognizer tapGestureRecognizer = new();
 		tapGestureRecognizer.Tapped += async (s, e) => await Navigation.PopToRootAsync();
 		HomeButton.GestureRecognizers.Add(tapGestureRecognizer);
@@ -29,12 +28,11 @@ public partial class BasePage : ContentPage
 		await Navigation.PopToRootAsync();
 	}
 
-
 	void ThemeToggle_Clicked(object? sender, EventArgs e)
 	{
 		ToolbarItem? item = (ToolbarItem?)sender;
 
-		if (item == null)
+		if (item is null || Application.Current is null)
 		{
 			return;
 		}
