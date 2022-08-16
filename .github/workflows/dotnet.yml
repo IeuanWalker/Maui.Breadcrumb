@@ -11,7 +11,7 @@ jobs:
     env:
       BUILD_CONFIG: 'Release'
       PROJECT: './Scr/StateButton/Breadcrumb.csproj'
-      NET6_VERSION: '6.0.300'
+      NET6_VERSION: 6.0.300
 
     runs-on: ubuntu-latest
 
