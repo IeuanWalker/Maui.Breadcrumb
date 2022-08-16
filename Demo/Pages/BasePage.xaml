@@ -96,19 +96,20 @@
             </breadcrumb:Breadcrumb>
 
             <!-- UriImageSource -->
-            <!--<Label Text="Image - URL" TextColor="{DynamicResource Text}" />
+            <Label Text="Image - URL" TextColor="{DynamicResource Text}" />
             <breadcrumb:Breadcrumb Padding="15"
-                                   HeightRequest="50"
+                                   SeparatorHeight="30"
                                    VerticalOptions="Start">
                 <breadcrumb:Breadcrumb.Separator>
                     <UriImageSource Uri="https://cdn.iconscout.com/icon/free/png-256/xamarin-4-599473.png" />
                 </breadcrumb:Breadcrumb.Separator>
-            </breadcrumb:Breadcrumb>-->
+            </breadcrumb:Breadcrumb>
 
             <!-- FileImageSource -->
             <Label Text="Image - Embedded" TextColor="{DynamicResource Text}" />
             <breadcrumb:Breadcrumb Padding="15"
                                    LastBreadcrumbTextColor="{DynamicResource Text}"
+                                   SeparatorHeight="30"
                                    TextColor="{DynamicResource Text}"
                                    VerticalOptions="Start">
                 <breadcrumb:Breadcrumb.Separator>

@@ -16,6 +16,15 @@ public partial class Breadcrumb : ContentView
 		set => SetValue(SeparatorProperty, value);
 	}
 
+	// Separator height
+	public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(Breadcrumb), 15d);
+
+	public double SeparatorHeight
+	{
+		get => (double)GetValue(SeparatorHeightProperty);
+		set => SetValue(SeparatorHeightProperty, value);
+	}
+
 	// FirstBreadCrumb
 	public static readonly BindableProperty FirstBreadCrumbProperty = BindableProperty.Create(nameof(FirstBreadCrumb), typeof(ImageSource), typeof(Breadcrumb), null);
 
@@ -165,6 +174,7 @@ public partial class Breadcrumb : ContentView
 				// Add separator
 				Image separator = new()
 				{
+					HeightRequest = SeparatorHeight,
 					Source = Separator,
 					VerticalOptions = LayoutOptions.Center
 				};
@@ -233,7 +243,7 @@ public partial class Breadcrumb : ContentView
 				VerticalOptions = LayoutOptions.Center,
 				VerticalTextAlignment = TextAlignment.Center
 			};
-			breadcrumbText.SetBinding(TextColorProperty, new Binding(isLast ? nameof(LastBreadcrumbTextColor) : nameof(TextColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
+			breadcrumbText.SetBinding(Label.TextColorProperty, new Binding(isLast ? nameof(LastBreadcrumbTextColor) : nameof(TextColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 			AutomationProperties.SetIsInAccessibleTree(breadcrumbText, false);
 
 			stackLayout.Children.Add(breadcrumbText);
