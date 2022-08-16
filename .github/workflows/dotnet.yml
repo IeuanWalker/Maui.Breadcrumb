@@ -5,12 +5,12 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    
+env:
+  NET6_VERSION: 6.0.400
 
 jobs:
   build:
-    env:
-      NET6_VERSION: 6.0.400
-
     runs-on: ubuntu-latest
 
     steps:
