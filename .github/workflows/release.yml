@@ -34,3 +34,6 @@ jobs:
       with:
         name: NuGet
         path: ${{ env.NUGET_PATH }}
+
+    - name: Publish
+        run: nuget push ${{ env.NUGET_PATH }} -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
