@@ -86,8 +86,6 @@ Next up, just add the breadcrumb control onto that page and you're all set.
 
 ### First breadcrumb customization
 You are able to change the first breadcrumb to an Icon, embedded image or url image.
-It implements the Xamarin.Forms ImageSource object.
-
 ```xml
 <breadcrumb:Breadcrumb Padding="15" VerticalOptions="Start">
     <breadcrumb:Breadcrumb.FirstBreadCrumb>
@@ -101,7 +99,6 @@ It implements the Xamarin.Forms ImageSource object.
 
 ### Separator customization 
 You are able to change the separators to an Icon, embedded image or url image.
-It implements the Xamarin.Forms ImageSource object.
 
 Font - (FontAwesome)
 ```xml
