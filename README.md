@@ -70,7 +70,7 @@ Next up, just add the breadcrumb control onto that page and you're all set.
 | Property | What it does | Extra info |
 |---|---|---- |
 | Separator | Sets the image source of the separator | This allows you to set the separator to `FontImageSource`, `UriImageSource` or `FileImageSource`. </br> Default is **new FontImageSource { Glyph = " / ", Color = Colors.Black, Size = 15, }** |
-| SeparatorHeight | Sets the image source of the separator | Default is **15** |
+| SeparatorHeight | Sets the height of the separator | Default is **15** |
 | FirstBreadcrumb | Allows you to override the first breadcrumb and set an image source. F.e. This is usefull if you want the first breadcrumb to be a home icon instead of the default title. | Default will be a label like all the other breadcrumbs |
 | ScrollBarVisibility | Sets the HorizontalScrollBarVisibility of the scrollview | More info here [ScrollBarVisibility](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.scrollbarvisibility?view=xamarin-forms). Default value is **ScrollBarVisibility.Never** |
 | FontSize | Sets the text font size for the breadcrumb | Default value is **15**. <br>Support [`NamedSize`](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.namedsize?view=xamarin-forms) |
