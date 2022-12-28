@@ -251,6 +251,7 @@ public partial class Breadcrumb : ContentView
 
 		Border accessibilityContainer = new()
 		{
+			BackgroundColor = Colors.Transparent,
 			Padding = 10,
 			Stroke = Colors.Transparent,
 			VerticalOptions = LayoutOptions.Center,

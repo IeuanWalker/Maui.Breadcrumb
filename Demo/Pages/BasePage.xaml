@@ -7,6 +7,16 @@
 
     <ContentPage.Content>
         <StackLayout>
+            <Border Margin="0"
+                    Padding="0"
+                    Background="Transparent"
+                    Stroke="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <Label Text="Test" TextColor="Black" />
+            </Border>
+
             <!-- Default -->
             <Label Text="Default" TextColor="{DynamicResource Text}" />
             <breadcrumb:Breadcrumb />
@@ -23,7 +33,8 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Margin="10,10,0,0"
-                        AutomationProperties.IsInAccessibleTree="True">
+                        AutomationProperties.IsInAccessibleTree="True"
+                        BackgroundColor="Transparent">
                     <Label FontFamily="FASolid900"
                            FontSize="18"
                            Text="&#xf015;"
