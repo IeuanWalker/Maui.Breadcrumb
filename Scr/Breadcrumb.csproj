@@ -53,7 +53,7 @@
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
-	  <PackageReference Include="IeuanWalker.Maui.StateButton" Version="1.0.0" />
+	  <PackageReference Include="IeuanWalker.Maui.StateButton" Version="1.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>

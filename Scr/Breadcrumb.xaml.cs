@@ -152,13 +152,12 @@ public partial class Breadcrumb : ContentView
 		// Loop all pages
 		foreach (Page page in pages)
 		{
+			// Create breadcrumb
+			Border breadcrumb = BreadcrumbCreator(page, page.Equals(pages.LastOrDefault()), page.Equals(pages.FirstOrDefault()));
 			if (!page.Equals(pages.LastOrDefault()))
 			{
-				// Create breadcrumb
-				Border breadCrumb1 = BreadCrumbLabelCreator(page, false, page.Equals(pages.FirstOrDefault()));
-
 				// Add breadcrumb and separator to BreadCrumbContainer
-				BreadCrumbContainer.Children.Add(breadCrumb1);
+				BreadCrumbContainer.Children.Add(breadcrumb);
 
 				// Add separator
 				Image separator = new()
@@ -180,12 +179,9 @@ public partial class Breadcrumb : ContentView
 
 			// Add ChildAdded event to trigger animation
 			BreadCrumbContainer.ChildAdded += AnimatedStack_ChildAdded;
-
-			// Create selectedPage title label
-			Border breadCrumb2 = BreadCrumbLabelCreator(page, true, page.Equals(pages.FirstOrDefault()));
-
+			
 			// Move BreadCrumb of selectedPage to start the animation
-			breadCrumb2.TranslationX = Application.Current?.MainPage?.Width ?? 0;
+			breadcrumb.TranslationX = Application.Current?.MainPage?.Width ?? 0;
 
 			// Scroll to end of control
 			await Task.Delay(10);
@@ -199,7 +195,7 @@ public partial class Breadcrumb : ContentView
 			await BreadCrumbsScrollView.ScrollToAsync(BreadCrumbContainer, ScrollToPosition.End, false);
 
 			// Add breadcrumb to container
-			BreadCrumbContainer.Children.Add(breadCrumb2);
+			BreadCrumbContainer.Children.Add(breadcrumb);
 
 			// Scroll to last breadcrumb
 			await BreadCrumbsScrollView.ScrollToAsync(BreadCrumbContainer, ScrollToPosition.End, AnimationSpeed != 0);
@@ -212,9 +208,9 @@ public partial class Breadcrumb : ContentView
 	/// <param name="page"></param>
 	/// <param name="isLast"></param>
 	/// <param name="isFirst"></param>
-	Border BreadCrumbLabelCreator(Page page, bool isLast, bool isFirst)
+	Border BreadcrumbCreator(Page page, bool isLast, bool isFirst)
 	{
-		// Create StackLayout to contain the label within a PancakeView
+		// Create border control for the breadcrumb
 		Border container = IsNavigationEnabled && !isLast ? 
 			new StateButton.StateButton
 			{
@@ -235,8 +231,7 @@ public partial class Breadcrumb : ContentView
 		container.SetBinding(BackgroundColorProperty, new Binding(isLast ? nameof(LastBreadcrumbBackgroundColor) : nameof(BreadcrumbBackgroundColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 
 		SemanticProperties.SetDescription(container, page.Title);
-
-		// Create and Add label to StackLayout
+		
 		if (isFirst && FirstBreadcrumb is not null)
 		{
 			container.Content = new Image
