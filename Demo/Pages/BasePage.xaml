@@ -7,16 +7,6 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Border Margin="0"
-                    Padding="0"
-                    Background="Transparent"
-                    Stroke="Transparent">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10" />
-                </Border.StrokeShape>
-                <Label Text="Test" TextColor="Black" />
-            </Border>
-
             <!-- Default -->
             <Label Text="Default" TextColor="{DynamicResource Text}" />
             <breadcrumb:Breadcrumb />
@@ -42,8 +32,6 @@
                 </Border>
                 <breadcrumb:Breadcrumb Grid.Row="0"
                                        Grid.Column="1"
-                                       Margin="0"
-                                       Padding="0"
                                        BackgroundColor="Transparent"
                                        BreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
                                        CornerRadius="6"
@@ -66,12 +54,44 @@
                          BackgroundColor="{DynamicResource DividerGradientEndColour}"
                          HeightRequest="1" />
             </Grid>
+            <Grid Grid.Row="1"
+                  BackgroundColor="{DynamicResource BreadcrumBackground}"
+                  RowDefinitions="auto,1"
+                  RowSpacing="0">
+                <breadcrumb:Breadcrumb Grid.Row="0"
+                                       Grid.Column="1"
+                                       BackgroundColor="Transparent"
+                                       BreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
+                                       CornerRadius="6"
+                                       FontSize="Small"
+                                       LastBreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
+                                       LastBreadcrumbCornerRadius="6"
+                                       LastBreadcrumbTextColor="{DynamicResource TextSilverColour}"
+                                       TextColor="{DynamicResource TextAccentColour}"
+                                       VerticalOptions="Start">
+                    <breadcrumb:Breadcrumb.FirstBreadcrumb>
+                        <FontImageSource FontFamily="FASolid900"
+                                         Glyph="&#xf015;"
+                                         Size="18"
+                                         Color="{DynamicResource TextAccentColour}" />
+                    </breadcrumb:Breadcrumb.FirstBreadcrumb>
+                    <breadcrumb:Breadcrumb.Separator>
+                        <FontImageSource FontFamily="FASolid900"
+                                         Glyph="&#xf054;"
+                                         Size="12"
+                                         Color="{DynamicResource TextAccentColour}" />
+                    </breadcrumb:Breadcrumb.Separator>
+                </breadcrumb:Breadcrumb>
+                <BoxView Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         BackgroundColor="{DynamicResource DividerGradientEndColour}"
+                         HeightRequest="1" />
+            </Grid>
 
             <!-- Dynamic test -->
             <Label Text="Dynamic Tests" TextColor="{DynamicResource Text}" />
-            <breadcrumb:Breadcrumb Margin="0"
-                                   Padding="0"
-                                   AnimationSpeed="100"
+            <breadcrumb:Breadcrumb AnimationSpeed="100"
                                    BackgroundColor="Transparent"
                                    BreadcrumbBackgroundColor="{DynamicResource DynamicBreadcrumbBackgroundColor}"
                                    BreadcrumbMargin="10"
@@ -94,8 +114,7 @@
             <!-- FontImageSource -->
 
             <Label Text="Icon - FontAwesome" TextColor="{DynamicResource Text}" />
-            <breadcrumb:Breadcrumb Padding="15"
-                                   LastBreadcrumbTextColor="{DynamicResource Text}"
+            <breadcrumb:Breadcrumb LastBreadcrumbTextColor="{DynamicResource Text}"
                                    TextColor="{DynamicResource Text}"
                                    VerticalOptions="Start">
                 <breadcrumb:Breadcrumb.Separator>
@@ -108,8 +127,7 @@
 
             <!-- UriImageSource -->
             <Label Text="Image - URL" TextColor="{DynamicResource Text}" />
-            <breadcrumb:Breadcrumb Padding="15"
-                                   LastBreadcrumbTextColor="{DynamicResource Text}"
+            <breadcrumb:Breadcrumb LastBreadcrumbTextColor="{DynamicResource Text}"
                                    SeparatorHeight="30"
                                    TextColor="{DynamicResource Text}"
                                    VerticalOptions="Start">
@@ -120,8 +138,7 @@
 
             <!-- FileImageSource -->
             <Label Text="Image - Embedded" TextColor="{DynamicResource Text}" />
-            <breadcrumb:Breadcrumb Padding="15"
-                                   LastBreadcrumbTextColor="{DynamicResource Text}"
+            <breadcrumb:Breadcrumb LastBreadcrumbTextColor="{DynamicResource Text}"
                                    SeparatorHeight="30"
                                    TextColor="{DynamicResource Text}"
                                    VerticalOptions="Start">

@@ -200,6 +200,12 @@ public partial class Breadcrumb : ContentView
 
 			// Scroll to end of control
 			await Task.Delay(10);
+
+			if(BreadCrumbContainer.Width < BreadCrumbsScrollView.Width)
+			{
+				BreadCrumbContainer.WidthRequest = BreadCrumbsScrollView.Width;
+			}
+
 			await BreadCrumbsScrollView.ScrollToAsync(BreadCrumbContainer, ScrollToPosition.End, false);
 
 			// Add breadcrumb to container
