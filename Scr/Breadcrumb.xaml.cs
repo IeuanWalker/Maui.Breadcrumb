@@ -200,6 +200,13 @@ public partial class Breadcrumb : ContentView
 
 			// Scroll to end of control
 			await Task.Delay(10);
+
+			// HACK: Remove once fixed - https://github.com/dotnet/maui/issues/9446
+			if (BreadCrumbContainer.Width < BreadCrumbsScrollView.Width)
+			{
+				BreadCrumbContainer.WidthRequest = BreadCrumbsScrollView.Width;
+			}
+
 			await BreadCrumbsScrollView.ScrollToAsync(BreadCrumbContainer, ScrollToPosition.End, false);
 
 			// Add breadcrumb to container
@@ -219,20 +226,31 @@ public partial class Breadcrumb : ContentView
 	Border BreadCrumbLabelCreator(Page page, bool isLast, bool isFirst)
 	{
 		// Create StackLayout to contain the label within a PancakeView
-		VerticalStackLayout stackLayout = new()
+		Border container = new()
 		{
-			VerticalOptions = LayoutOptions.Center,
+			BackgroundColor = Colors.Transparent,
+			StrokeShape = new RoundRectangle
+			{
+				CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius
+			},
+			Padding = 10,
+			Stroke = Colors.Transparent,
+			Margin = BreadcrumbMargin,
+			VerticalOptions = LayoutOptions.Center
 		};
-		AutomationProperties.SetIsInAccessibleTree(stackLayout, false);
+		container.SetBinding(BackgroundColorProperty, new Binding(isLast ? nameof(LastBreadcrumbBackgroundColor) : nameof(BreadcrumbBackgroundColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
+
+		AutomationProperties.SetIsInAccessibleTree(container, true);
+		SemanticProperties.SetDescription(container, page.Title);
 
 		// Create and Add label to StackLayout
 		if (isFirst && FirstBreadcrumb != null)
 		{
-			stackLayout.Children.Add(new Image
+			container.Content = new Image
 			{
 				Source = FirstBreadcrumb,
 				VerticalOptions = LayoutOptions.Center
-			});
+			};
 		}
 		else
 		{
@@ -246,32 +264,8 @@ public partial class Breadcrumb : ContentView
 			breadcrumbText.SetBinding(Label.TextColorProperty, new Binding(isLast ? nameof(LastBreadcrumbTextColor) : nameof(TextColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 			AutomationProperties.SetIsInAccessibleTree(breadcrumbText, false);
 
-			stackLayout.Children.Add(breadcrumbText);
+			container.Content = breadcrumbText;
 		}
-
-		Border accessibilityContainer = new()
-		{
-			Padding = 10,
-			Stroke = Colors.Transparent,
-			VerticalOptions = LayoutOptions.Center,
-			Content = stackLayout
-		};
-
-		Border container = new()
-		{
-			StrokeShape = new RoundRectangle
-			{
-				CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius
-			},
-			Padding = 0,
-			Stroke = Colors.Transparent,
-			Content = accessibilityContainer,
-			Margin = BreadcrumbMargin
-		};
-		container.SetBinding(BackgroundColorProperty, new Binding(isLast ? nameof(LastBreadcrumbBackgroundColor) : nameof(BreadcrumbBackgroundColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
-
-		AutomationProperties.SetIsInAccessibleTree(accessibilityContainer, true);
-		AutomationProperties.SetName(accessibilityContainer, page.Title);
 
 		return container;
 	}
