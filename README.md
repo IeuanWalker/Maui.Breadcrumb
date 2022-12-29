@@ -1,28 +1,8 @@
 | :memo:        | This is a MAUI version of my [Xamarin NuGet](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)      |
 |---------------|:------------------------|
 
-<table>
-  <thead>
-    <tr>
-      <td align="left">
-        :warning: WARNING 
-      </td>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-         NuGet is in preview at the moment. There are several reasons its in preview -
-        <ul>
-          <li>It's not fully accessible <i>yet</i></li>
-          <li>I havnt tested iOS <i>yet</i></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+| :warning:        | I havnt tested iOS <i>yet, (all should be fine though)</i>    |
+|---------------|:------------------------|
 
 # Maui.Breadcrumb [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) [![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.Maui.Breadcrumb)](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
