@@ -20,7 +20,7 @@ Basic example             |  Production Example
 
 
 ## How to use it?
-Install the [NuGet package](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb) into all of your projects 
+Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb/) into all of your projects 
 ```
 Install-Package IeuanWalker.Maui.Breadcrumb
 ```
