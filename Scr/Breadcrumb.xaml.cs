@@ -201,7 +201,8 @@ public partial class Breadcrumb : ContentView
 			// Scroll to end of control
 			await Task.Delay(10);
 
-			if(BreadCrumbContainer.Width < BreadCrumbsScrollView.Width)
+			// HACK: Remove once fixed - https://github.com/dotnet/maui/issues/9446
+			if (BreadCrumbContainer.Width < BreadCrumbsScrollView.Width)
 			{
 				BreadCrumbContainer.WidthRequest = BreadCrumbsScrollView.Width;
 			}
