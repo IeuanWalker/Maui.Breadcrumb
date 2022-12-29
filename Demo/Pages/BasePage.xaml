@@ -58,8 +58,7 @@
                                    LastBreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
                                    LastBreadcrumbCornerRadius="6"
                                    LastBreadcrumbTextColor="{DynamicResource TextSilverColour}"
-                                   TextColor="{DynamicResource TextAccentColour}"
-                                   VerticalOptions="Start">
+                                   TextColor="{DynamicResource TextAccentColour}">
                 <breadcrumb:Breadcrumb.FirstBreadcrumb>
                     <FontImageSource FontFamily="FASolid900"
                                      Glyph="&#xf015;"
