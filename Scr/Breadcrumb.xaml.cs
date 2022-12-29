@@ -157,17 +157,6 @@ public partial class Breadcrumb : ContentView
 				// Create breadcrumb
 				Border breadCrumb1 = BreadCrumbLabelCreator(page, false, page.Equals(pages.FirstOrDefault()));
 
-				// Add tap gesture
-				if (IsNavigationEnabled)
-				{
-					TapGestureRecognizer tapGesture = new()
-					{
-						CommandParameter = page,
-						Command = new Command<Page>(async item => await GoBack(item).ConfigureAwait(false))
-					};
-					breadCrumb1.GestureRecognizers.Add(tapGesture);
-				}
-
 				// Add breadcrumb and separator to BreadCrumbContainer
 				BreadCrumbContainer.Children.Add(breadCrumb1);
 
@@ -226,25 +215,29 @@ public partial class Breadcrumb : ContentView
 	Border BreadCrumbLabelCreator(Page page, bool isLast, bool isFirst)
 	{
 		// Create StackLayout to contain the label within a PancakeView
-		Border container = new()
-		{
-			BackgroundColor = Colors.Transparent,
-			StrokeShape = new RoundRectangle
+		Border container = IsNavigationEnabled && !isLast ? 
+			new StateButton.StateButton
 			{
-				CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius
-			},
-			Padding = 10,
-			Stroke = Colors.Transparent,
-			Margin = BreadcrumbMargin,
-			VerticalOptions = LayoutOptions.Center
+				ClickedCommand = new Command<Page>(async item => await GoBack(item).ConfigureAwait(false)),
+				ClickedCommandParameter = page
+			}
+			: new Border();
+		
+		container.BackgroundColor = Colors.Transparent;
+		container.StrokeShape = new RoundRectangle
+		{
+			CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius
 		};
+		container.Padding = 10;
+		container.Stroke = Colors.Transparent;
+		container.Margin = BreadcrumbMargin;
+		container.VerticalOptions = LayoutOptions.Center;
 		container.SetBinding(BackgroundColorProperty, new Binding(isLast ? nameof(LastBreadcrumbBackgroundColor) : nameof(BreadcrumbBackgroundColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 
-		AutomationProperties.SetIsInAccessibleTree(container, true);
 		SemanticProperties.SetDescription(container, page.Title);
 
 		// Create and Add label to StackLayout
-		if (isFirst && FirstBreadcrumb != null)
+		if (isFirst && FirstBreadcrumb is not null)
 		{
 			container.Content = new Image
 			{
