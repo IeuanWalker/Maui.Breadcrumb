@@ -15,7 +15,6 @@
       <td>
          NuGet is in preview at the moment. There are several reasons its in preview -
         <ul>
-          <li>There is a bug in MAUI preventing the StackLayout within the scrollview from filling the width, this means the breadcrumb doesnt animate in from outside the screen, more info here - https://github.com/dotnet/maui/issues/9446</li>
           <li>It's not fully accessible <i>yet</i></li>
           <li>I havnt tested iOS <i>yet</i></li>
         </ul>
