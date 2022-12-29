@@ -25,6 +25,17 @@ Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.Maui.Brea
 Install-Package IeuanWalker.Maui.Breadcrumb
 ```
 
+This control uses one of my other controls [StateButton](https://github.com/IeuanWalker/Maui.StateButton), this is to make this control accessible. So you'll need to add StateButton configuration method in the MauiProgram.cs -
+```csharp
+using StateButton;
+```
+```csharp
+builder
+	.UseMauiApp<App>()
+	.UseMauiCommunityToolkit()
+	.ConfigureStateButton();
+```
+
 To add to a page the first thing we need to do is tell our XAML page where it can find the Breadcrumb control, which is done by adding the following attribute to our ContentPage:
 
 ```xml
