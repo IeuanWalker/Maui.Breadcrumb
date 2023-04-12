@@ -17,12 +17,12 @@ Basic example             |  Production Example
 
 
 ## How to use it?
-Install the [NuGet package](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb) into all of your projects 
+Install the [NuGet package](https://www.nuget.org/packages/IeuanWalker.Maui.Breadcrumb/) into all of your projects 
 ```
 Install-Package IeuanWalker.Maui.Breadcrumb
 ```
 
-This control uses one of my other controls, [StateButton](https://github.com/IeuanWalker/Maui.StateButton), so you'll need to register the using in the `MauiProgram.cs` on the `MauiAppBuilder`
+This control uses one of my other controls, [StateButton](https://github.com/IeuanWalker/Maui.StateButton), this is to make this control accessible. Ao you'll need to register the using in the `MauiProgram.cs` on the `MauiAppBuilder`
 ```csharp
 builder
 	.UseMauiApp<App>()
