@@ -1,4 +1,4 @@
-﻿using StateButton;
+﻿using IeuanWalker.Maui.StateButton;
 
 namespace App;
 
@@ -15,7 +15,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				fonts.AddFont("fa-solid-900.ttf", "FASolid900");
 			})
-			.ConfigureStateButton();
+			.UseStateButton();
 
 		return builder.Build();
 	}
