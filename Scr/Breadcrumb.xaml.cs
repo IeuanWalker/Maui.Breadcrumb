@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using IeuanWalker.Maui.StateButton;
 using Microsoft.Maui.Controls.Shapes;
 
 namespace Breadcrumb;
@@ -179,7 +180,7 @@ public partial class Breadcrumb : ContentView
 
 			// Add ChildAdded event to trigger animation
 			BreadCrumbContainer.ChildAdded += AnimatedStack_ChildAdded;
-			
+
 			// Move BreadCrumb of selectedPage to start the animation
 			breadcrumb.TranslationX = Application.Current?.MainPage?.Width ?? 0;
 
@@ -211,14 +212,14 @@ public partial class Breadcrumb : ContentView
 	Border BreadcrumbCreator(Page page, bool isLast, bool isFirst)
 	{
 		// Create border control for the breadcrumb
-		Border container = IsNavigationEnabled && !isLast ? 
-			new StateButton.StateButton
+		Border container = IsNavigationEnabled && !isLast ?
+			new StateButton
 			{
 				ClickedCommand = new Command<Page>(async item => await GoBack(item).ConfigureAwait(false)),
 				ClickedCommandParameter = page
 			}
 			: new Border();
-		
+
 		container.BackgroundColor = Colors.Transparent;
 		container.StrokeShape = new RoundRectangle
 		{
@@ -231,7 +232,7 @@ public partial class Breadcrumb : ContentView
 		container.SetBinding(BackgroundColorProperty, new Binding(isLast ? nameof(LastBreadcrumbBackgroundColor) : nameof(BreadcrumbBackgroundColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 
 		SemanticProperties.SetDescription(container, page.Title);
-		
+
 		if (isFirst && FirstBreadcrumb is not null)
 		{
 			container.Content = new Image
