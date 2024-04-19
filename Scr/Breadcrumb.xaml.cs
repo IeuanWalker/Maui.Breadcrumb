@@ -144,6 +144,8 @@ public partial class Breadcrumb : ContentView
 
 	async void BreadCrumbContainer_Loaded(object sender, EventArgs e)
 	{
+		BreadCrumbContainer.Loaded -= BreadCrumbContainer_Loaded;
+
 		// Get list of all pages in the NavigationStack that has a selectedPage title
 		List<Page> pages = Navigation.NavigationStack.Select(x => x).Where(x => !string.IsNullOrEmpty(x?.Title)).ToList();
 
