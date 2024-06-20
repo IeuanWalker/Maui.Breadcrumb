@@ -3,12 +3,12 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Padding="4"
-             AutomationProperties.IsInAccessibleTree="False"
-             IsVisible="False">
+             AutomationProperties.IsInAccessibleTree="False">
     <ContentView.Content>
         <ScrollView x:Name="BreadCrumbsScrollView"
                     AutomationProperties.IsInAccessibleTree="False"
                     HorizontalScrollBarVisibility="{Binding ScrollBarVisibility, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                    IsVisible="False"
                     Orientation="Horizontal">
             <HorizontalStackLayout x:Name="BreadCrumbContainer"
                                    AutomationProperties.IsInAccessibleTree="False"

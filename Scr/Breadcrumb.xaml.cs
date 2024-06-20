@@ -150,14 +150,14 @@ public partial class Breadcrumb : ContentView
 		List<Page> pages = Navigation.NavigationStack.Select(x => x).Where(x => !string.IsNullOrEmpty(x?.Title)).ToList();
 
 		// If any pages, make the control visible
-		IsVisible = pages.Count > 0;
+		BreadCrumbsScrollView.IsVisible = pages.Count > 0;
 
 		// Loop all pages
-		foreach (Page page in pages)
+		foreach(Page page in pages)
 		{
 			// Create breadcrumb
 			Border breadcrumb = BreadcrumbCreator(page, page.Equals(pages.LastOrDefault()), page.Equals(pages.FirstOrDefault()));
-			if (!page.Equals(pages.LastOrDefault()))
+			if(!page.Equals(pages.LastOrDefault()))
 			{
 				// Add breadcrumb and separator to BreadCrumbContainer
 				BreadCrumbContainer.Children.Add(breadcrumb);
@@ -175,7 +175,7 @@ public partial class Breadcrumb : ContentView
 				continue;
 			}
 
-			if (BreadCrumbContainer.Children.Count > 0)
+			if(BreadCrumbContainer.Children.Count > 0)
 			{
 				await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false);
 			}
@@ -190,7 +190,7 @@ public partial class Breadcrumb : ContentView
 			await Task.Delay(10);
 
 			// HACK: Remove once fixed - https://github.com/dotnet/maui/issues/9446
-			if (BreadCrumbContainer.Width < BreadCrumbsScrollView.Width)
+			if(BreadCrumbContainer.Width < BreadCrumbsScrollView.Width)
 			{
 				BreadCrumbContainer.WidthRequest = BreadCrumbsScrollView.Width;
 			}
@@ -235,7 +235,7 @@ public partial class Breadcrumb : ContentView
 
 		SemanticProperties.SetDescription(container, page.Title);
 
-		if (isFirst && FirstBreadcrumb is not null)
+		if(isFirst && FirstBreadcrumb is not null)
 		{
 			container.Content = new Image
 			{
@@ -269,7 +269,7 @@ public partial class Breadcrumb : ContentView
 	async void AnimatedStack_ChildAdded(object? sender, ElementEventArgs e)
 	{
 		// iOS scroll to end fix
-		if (DeviceInfo.Platform.Equals(DevicePlatform.iOS))
+		if(DeviceInfo.Platform.Equals(DevicePlatform.iOS))
 		{
 			await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false);
 		}
@@ -292,7 +292,7 @@ public partial class Breadcrumb : ContentView
 	async Task GoBack(Page selectedPage)
 	{
 		// Check if selectedPage is still in Navigation Stack
-		if (Navigation.NavigationStack.All(x => x != selectedPage))
+		if(Navigation.NavigationStack.All(x => x != selectedPage))
 		{
 			// PopToRoot triggered if selectedPage is missing from navigation stack
 			await Navigation.PopToRootAsync();
@@ -309,7 +309,7 @@ public partial class Breadcrumb : ContentView
 		pages = pages.Take(pages.Count - 1).ToList();
 
 		// Remove all pages left in list (i.e. all pages after selectedPage, minus the current page)
-		foreach (Page page in pages)
+		foreach(Page page in pages)
 		{
 			Navigation.RemovePage(page);
 		}
