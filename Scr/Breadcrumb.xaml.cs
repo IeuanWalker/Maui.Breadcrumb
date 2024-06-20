@@ -219,13 +219,12 @@ public partial class Breadcrumb : ContentView
 			}
 			: new Border();
 
-		container.BackgroundColor = Colors.Transparent;
 		container.StrokeShape = new RoundRectangle
 		{
 			CornerRadius = isLast ? LastBreadcrumbCornerRadius : CornerRadius
 		};
 		container.Padding = 10;
-		container.Stroke = Colors.Transparent;
+		container.StrokeThickness = 0;
 		container.Margin = BreadcrumbMargin;
 		container.VerticalOptions = LayoutOptions.Center;
 		container.SetBinding(BackgroundColorProperty, new Binding(isLast ? nameof(LastBreadcrumbBackgroundColor) : nameof(BreadcrumbBackgroundColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
@@ -236,8 +235,7 @@ public partial class Breadcrumb : ContentView
 		{
 			container.Content = new Image
 			{
-				Source = FirstBreadcrumb,
-				VerticalOptions = LayoutOptions.Center
+				Source = FirstBreadcrumb
 			};
 		}
 		else
@@ -245,9 +243,7 @@ public partial class Breadcrumb : ContentView
 			Label breadcrumbText = new()
 			{
 				Text = page.Title,
-				FontSize = FontSize,
-				VerticalOptions = LayoutOptions.Center,
-				VerticalTextAlignment = TextAlignment.Center
+				FontSize = FontSize
 			};
 			breadcrumbText.SetBinding(Label.TextColorProperty, new Binding(isLast ? nameof(LastBreadcrumbTextColor) : nameof(TextColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 			AutomationProperties.SetIsInAccessibleTree(breadcrumbText, false);
@@ -271,7 +267,7 @@ public partial class Breadcrumb : ContentView
 
 		Animation lastBreadcrumbAnimation = new()
 		{
-			{ 0, 1, new Animation(_ => ((View)BreadCrumbContainer.Children.Last()).TranslationX = _, Application.Current?.MainPage?.Width ?? 0, 0, Easing.Linear) }
+			{ 0, 1, new Animation(_ => ((View)BreadCrumbContainer.Children[^1]).TranslationX = _, Application.Current?.MainPage?.Width ?? 0, 0, Easing.Linear) }
 		};
 
 		Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children.Last(), ScrollToPosition.End);
