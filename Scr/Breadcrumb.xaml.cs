@@ -270,7 +270,7 @@ public partial class Breadcrumb : ContentView
 			{ 0, 1, new Animation(_ => ((View)BreadCrumbContainer.Children[^1]).TranslationX = _, Application.Current?.MainPage?.Width ?? 0, 0, Easing.Linear) }
 		};
 
-		Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children.Last(), ScrollToPosition.End);
+		Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children[^1], ScrollToPosition.End);
 		lastBreadcrumbAnimation.Add(0, 1, new Animation(_ => BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, true), BreadCrumbsScrollView.X, point.X - 6));
 
 		lastBreadcrumbAnimation.Commit(this, nameof(lastBreadcrumbAnimation), 16, AnimationSpeed);
