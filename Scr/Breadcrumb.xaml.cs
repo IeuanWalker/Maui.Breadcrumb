@@ -9,7 +9,7 @@ public partial class Breadcrumb : ContentView
 	#region Control properties
 
 	// Separator
-	public static readonly BindableProperty SeparatorProperty = BindableProperty.Create(nameof(Separator), typeof(ImageSource), typeof(Breadcrumb), new FontImageSource { Glyph = " / ", Color = Colors.Black, Size = 15, });
+	public static readonly BindableProperty SeparatorProperty = BindableProperty.Create(nameof(Separator), typeof(ImageSource), typeof(Breadcrumb), new FontImageSource { Glyph = " / ", Color = Colors.Black, Size = 15, }, BindingMode.OneTime);
 
 	public ImageSource Separator
 	{
@@ -18,7 +18,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// Separator height
-	public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(Breadcrumb), 15d);
+	public static readonly BindableProperty SeparatorHeightProperty = BindableProperty.Create(nameof(SeparatorHeight), typeof(double), typeof(Breadcrumb), 15d, BindingMode.OneTime);
 
 	public double SeparatorHeight
 	{
@@ -27,7 +27,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// FirstBreadCrumb
-	public static readonly BindableProperty FirstBreadcrumbProperty = BindableProperty.Create(nameof(FirstBreadcrumb), typeof(ImageSource), typeof(Breadcrumb), null);
+	public static readonly BindableProperty FirstBreadcrumbProperty = BindableProperty.Create(nameof(FirstBreadcrumb), typeof(ImageSource), typeof(Breadcrumb), null, BindingMode.OneTime);
 
 	public ImageSource FirstBreadcrumb
 	{
@@ -36,7 +36,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// Scrollbar Visibility
-	public static readonly BindableProperty ScrollBarVisibilityProperty = BindableProperty.Create(nameof(ScrollBarVisibility), typeof(ScrollBarVisibility), typeof(Breadcrumb), ScrollBarVisibility.Never);
+	public static readonly BindableProperty ScrollBarVisibilityProperty = BindableProperty.Create(nameof(ScrollBarVisibility), typeof(ScrollBarVisibility), typeof(Breadcrumb), ScrollBarVisibility.Never, BindingMode.OneTime);
 
 	public ScrollBarVisibility ScrollBarVisibility
 	{
@@ -45,7 +45,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// FontSize
-	public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(Breadcrumb), 15d);
+	public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(Breadcrumb), 15d, BindingMode.OneTime);
 
 	[TypeConverter(typeof(FontSizeConverter))]
 	public double FontSize
@@ -55,7 +55,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// Text Color
-	public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(Breadcrumb), Colors.Black);
+	public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(Breadcrumb), Colors.Black, BindingMode.OneTime);
 
 	public Color TextColor
 	{
@@ -64,7 +64,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// Corner radius
-	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(Breadcrumb), 10f);
+	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(Breadcrumb), 10f, BindingMode.OneTime);
 
 	public float CornerRadius
 	{
@@ -73,7 +73,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// Breadcrumb margin
-	public static readonly BindableProperty BreadcrumbMarginProperty = BindableProperty.Create(nameof(BreadcrumbMargin), typeof(Thickness), typeof(Breadcrumb), new Thickness(0));
+	public static readonly BindableProperty BreadcrumbMarginProperty = BindableProperty.Create(nameof(BreadcrumbMargin), typeof(Thickness), typeof(Breadcrumb), new Thickness(0), BindingMode.OneTime);
 
 	public Thickness BreadcrumbMargin
 	{
@@ -82,7 +82,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// BreadcrumbBackgroundColor
-	public static readonly BindableProperty BreadcrumbBackgroundColorProperty = BindableProperty.Create(nameof(BreadcrumbBackgroundColor), typeof(Color), typeof(Breadcrumb), Colors.Transparent);
+	public static readonly BindableProperty BreadcrumbBackgroundColorProperty = BindableProperty.Create(nameof(BreadcrumbBackgroundColor), typeof(Color), typeof(Breadcrumb), Colors.Transparent, BindingMode.OneTime);
 
 	public Color BreadcrumbBackgroundColor
 	{
@@ -91,7 +91,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// LastBreadcrumbTextColor
-	public static readonly BindableProperty LastBreadcrumbTextColorProperty = BindableProperty.Create(nameof(LastBreadcrumbTextColor), typeof(Color), typeof(Breadcrumb), Colors.Black);
+	public static readonly BindableProperty LastBreadcrumbTextColorProperty = BindableProperty.Create(nameof(LastBreadcrumbTextColor), typeof(Color), typeof(Breadcrumb), Colors.Black, BindingMode.OneTime);
 
 	public Color LastBreadcrumbTextColor
 	{
@@ -100,7 +100,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// LastBreadcrumbCornerRadius
-	public static readonly BindableProperty LastBreadcrumbCornerRadiusProperty = BindableProperty.Create(nameof(LastBreadcrumbCornerRadius), typeof(float), typeof(Breadcrumb), 10f);
+	public static readonly BindableProperty LastBreadcrumbCornerRadiusProperty = BindableProperty.Create(nameof(LastBreadcrumbCornerRadius), typeof(float), typeof(Breadcrumb), 10f, BindingMode.OneTime);
 
 	public float LastBreadcrumbCornerRadius
 	{
@@ -109,7 +109,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// LastBreadcrumbBackgroundColor
-	public static readonly BindableProperty LastBreadcrumbBackgroundColorProperty = BindableProperty.Create(nameof(LastBreadcrumbBackgroundColor), typeof(Color), typeof(Breadcrumb), Colors.Transparent);
+	public static readonly BindableProperty LastBreadcrumbBackgroundColorProperty = BindableProperty.Create(nameof(LastBreadcrumbBackgroundColor), typeof(Color), typeof(Breadcrumb), Colors.Transparent, BindingMode.OneTime);
 
 	public Color LastBreadcrumbBackgroundColor
 	{
@@ -118,7 +118,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// AnimationSpeed
-	public static readonly BindableProperty AnimationSpeedProperty = BindableProperty.Create(nameof(AnimationSpeed), typeof(uint), typeof(Breadcrumb), (uint)800);
+	public static readonly BindableProperty AnimationSpeedProperty = BindableProperty.Create(nameof(AnimationSpeed), typeof(uint), typeof(Breadcrumb), (uint)800, BindingMode.OneTime);
 
 	public uint AnimationSpeed
 	{
@@ -127,7 +127,7 @@ public partial class Breadcrumb : ContentView
 	}
 
 	// IsNavigationEnabled
-	public static readonly BindableProperty IsNavigationEnabledProperty = BindableProperty.Create(nameof(IsNavigationEnabled), typeof(bool), typeof(Breadcrumb), true);
+	public static readonly BindableProperty IsNavigationEnabledProperty = BindableProperty.Create(nameof(IsNavigationEnabled), typeof(bool), typeof(Breadcrumb), true, BindingMode.OneTime);
 
 	public bool IsNavigationEnabled
 	{

@@ -12,9 +12,7 @@
                     Orientation="Horizontal">
             <HorizontalStackLayout x:Name="BreadCrumbContainer"
                                    AutomationProperties.IsInAccessibleTree="False"
-                                   HorizontalOptions="Fill"
-                                   Loaded="BreadCrumbContainer_Loaded"
-                                   VerticalOptions="Center" />
+                                   Loaded="BreadCrumbContainer_Loaded" />
         </ScrollView>
     </ContentView.Content>
 </ContentView>
