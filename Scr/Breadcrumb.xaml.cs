@@ -142,7 +142,7 @@ public partial class Breadcrumb : ContentView
 		InitializeComponent();
 	}
 
-	async void BreadCrumbContainer_Loaded(object sender, EventArgs e)
+	async void BreadCrumbContainer_Loaded(object? sender, EventArgs e)
 	{
 		BreadCrumbContainer.Loaded -= BreadCrumbContainer_Loaded;
 
@@ -208,9 +208,6 @@ public partial class Breadcrumb : ContentView
 	/// <summary>
 	/// Creates a new Breadcrumb object
 	/// </summary>
-	/// <param name="page"></param>
-	/// <param name="isLast"></param>
-	/// <param name="isFirst"></param>
 	Border BreadcrumbCreator(Page page, bool isLast, bool isFirst)
 	{
 		// Create border control for the breadcrumb
@@ -264,8 +261,6 @@ public partial class Breadcrumb : ContentView
 	/// <summary>
 	/// Animates item added to stack
 	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
 	async void AnimatedStack_ChildAdded(object? sender, ElementEventArgs e)
 	{
 		// iOS scroll to end fix
@@ -288,7 +283,6 @@ public partial class Breadcrumb : ContentView
 	/// <summary>
 	/// Navigates the user back to chosen selectedPage in the Navigation stack
 	/// </summary>
-	/// <param name="selectedPage"></param>
 	async Task GoBack(Page selectedPage)
 	{
 		// Check if selectedPage is still in Navigation Stack
