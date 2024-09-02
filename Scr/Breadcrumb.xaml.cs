@@ -63,6 +63,15 @@ public partial class Breadcrumb : ContentView
 		set => SetValue(TextColorProperty, value);
 	}
 
+	// Font family
+	public static readonly BindableProperty FontFamilyProperty = BindableProperty.Create(nameof(FontFamily), typeof(string), typeof(Breadcrumb), null, BindingMode.OneTime);
+	public string FontFamily
+	{
+		get => (string)GetValue(FontFamilyProperty);
+		set => SetValue(FontFamilyProperty, value);
+	}
+
+
 	// Corner radius
 	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(Breadcrumb), 10f, BindingMode.OneTime);
 
@@ -243,7 +252,8 @@ public partial class Breadcrumb : ContentView
 			Label breadcrumbText = new()
 			{
 				Text = page.Title,
-				FontSize = FontSize
+				FontSize = FontSize,
+				FontFamily = FontFamily
 			};
 			breadcrumbText.SetBinding(Label.TextColorProperty, new Binding(isLast ? nameof(LastBreadcrumbTextColor) : nameof(TextColor), source: new RelativeBindingSource(RelativeBindingSourceMode.FindAncestor, typeof(Breadcrumb))));
 			AutomationProperties.SetIsInAccessibleTree(breadcrumbText, false);
