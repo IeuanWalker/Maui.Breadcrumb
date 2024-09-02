@@ -54,7 +54,7 @@
             </Grid>
             <breadcrumb:Breadcrumb BreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
                                    CornerRadius="6"
-                                   FontSize="Small"
+                                   FontSize="Small" FontFamily="SevillanaRegular"
                                    LastBreadcrumbBackgroundColor="{DynamicResource BreadcrumBackground}"
                                    LastBreadcrumbCornerRadius="6"
                                    LastBreadcrumbTextColor="{DynamicResource TextSilverColour}"
