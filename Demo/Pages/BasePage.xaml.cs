@@ -32,12 +32,12 @@ public partial class BasePage : ContentPage
 	{
 		ToolbarItem? item = (ToolbarItem?)sender;
 
-		if (item is null || Application.Current is null)
+		if(item is null || Application.Current is null)
 		{
 			return;
 		}
 
-		switch (item.Text)
+		switch(item.Text)
 		{
 			case nameof(Theme.Light):
 				Application.Current.Resources = new DarkTheme();

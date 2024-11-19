@@ -71,7 +71,6 @@ public partial class Breadcrumb : ContentView
 		set => SetValue(FontFamilyProperty, value);
 	}
 
-
 	// Corner radius
 	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(Breadcrumb), 10f, BindingMode.OneTime);
 
@@ -193,7 +192,7 @@ public partial class Breadcrumb : ContentView
 			BreadCrumbContainer.ChildAdded += AnimatedStack_ChildAdded;
 
 			// Move BreadCrumb of selectedPage to start the animation
-			breadcrumb.TranslationX = Application.Current?.MainPage?.Width ?? 0;
+			breadcrumb.TranslationX = Application.Current?.Windows[0].Page?.Width ?? 0;
 
 			// Scroll to end of control
 			await Task.Delay(10);
@@ -277,7 +276,7 @@ public partial class Breadcrumb : ContentView
 
 		Animation lastBreadcrumbAnimation = new()
 		{
-			{ 0, 1, new Animation(_ => ((View)BreadCrumbContainer.Children[^1]).TranslationX = _, Application.Current?.MainPage?.Width ?? 0, 0, Easing.Linear) }
+			{ 0, 1, new Animation(_ => ((View)BreadCrumbContainer.Children[^1]).TranslationX = _, Application.Current?.Windows[0].Page?.Width ?? 0, 0, Easing.Linear) }
 		};
 
 		Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children[^1], ScrollToPosition.End);
