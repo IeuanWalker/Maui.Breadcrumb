@@ -46,12 +46,12 @@
     <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.25">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="IeuanWalker.Maui.StateButton" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Include="IeuanWalker.Maui.StateButton" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.10" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Breadcrumb.xaml.cs">
