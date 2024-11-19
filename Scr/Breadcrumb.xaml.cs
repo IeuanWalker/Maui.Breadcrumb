@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using IeuanWalker.Maui.StateButton;
 using Microsoft.Maui.Controls.Shapes;
-using Microsoft.Maui.Devices;
-using Microsoft.Maui.ApplicationModel;
 
 namespace Breadcrumb;
 
