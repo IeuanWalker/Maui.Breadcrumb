@@ -71,7 +71,6 @@ public partial class Breadcrumb : ContentView
 		set => SetValue(FontFamilyProperty, value);
 	}
 
-
 	// Corner radius
 	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(Breadcrumb), 10f, BindingMode.OneTime);
 
