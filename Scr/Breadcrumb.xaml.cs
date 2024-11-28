@@ -183,9 +183,12 @@ public partial class Breadcrumb : ContentView
 				continue;
 			}
 
-			Border inVisibleBreadcrumb = BreadcrumbCreator(page, page.Equals(pages.LastOrDefault()), page.Equals(pages.FirstOrDefault()));
-			inVisibleBreadcrumb.Opacity = 0;
-			BreadCrumbContainer.Children.Add(inVisibleBreadcrumb);
+			Border invisibleBreadcrumb = BreadcrumbCreator(page, page.Equals(pages.LastOrDefault()), page.Equals(pages.FirstOrDefault()));
+			invisibleBreadcrumb.Opacity = 0;
+			AutomationProperties.SetIsInAccessibleTree(invisibleBreadcrumb, false);
+			AutomationProperties.SetExcludedWithChildren(invisibleBreadcrumb, true);
+
+			BreadCrumbContainer.Children.Add(invisibleBreadcrumb);
 
 			if(BreadCrumbContainer.Children.Count > 0)
 			{
