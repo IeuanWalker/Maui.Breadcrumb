@@ -274,7 +274,7 @@ public partial class Breadcrumb : ContentView
 	{
 		await Task.Run(async () =>
 		{
-			while(BreadCrumbContainer.Children.LastOrDefault() is not View firstBreadcrumb || firstBreadcrumb.Width <= 0)
+			while(BreadCrumbContainer.Children.LastOrDefault() is not View lastBreadcrumb || lastBreadcrumb.Width <= 0)
 			{
 				await Task.Delay(100);
 			}
