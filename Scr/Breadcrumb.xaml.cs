@@ -303,9 +303,13 @@ public partial class Breadcrumb : ContentView
 			}
 			containerWidth -= lastBreadcrumbWidth;
 
-			if(containerWidth > BreadCrumbContainer.WidthRequest)
+			if(containerWidth > BreadCrumbsScrollView.Width)
 			{
 				MainThread.BeginInvokeOnMainThread(() => BreadCrumbContainer.WidthRequest = containerWidth);
+			}
+			else
+			{
+				MainThread.BeginInvokeOnMainThread(() => BreadCrumbContainer.WidthRequest = BreadCrumbsScrollView.Width);
 			}
 			MainThread.BeginInvokeOnMainThread(async () => await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false));
 		});
