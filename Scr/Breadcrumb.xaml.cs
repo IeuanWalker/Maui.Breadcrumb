@@ -183,6 +183,10 @@ public partial class Breadcrumb : ContentView
 				continue;
 			}
 
+			Border inVisibleBreadcrumb = BreadcrumbCreator(page, page.Equals(pages.LastOrDefault()), page.Equals(pages.FirstOrDefault()));
+			inVisibleBreadcrumb.Opacity = 0;
+			BreadCrumbContainer.Children.Add(inVisibleBreadcrumb);
+
 			if(BreadCrumbContainer.Children.Count > 0)
 			{
 				await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false);
@@ -195,7 +199,7 @@ public partial class Breadcrumb : ContentView
 			breadcrumb.TranslationX = Application.Current?.Windows[0].Page?.Width ?? 0;
 
 			// Scroll to end of control
-			await Task.Delay(10);
+			await Task.Delay(100);
 
 			// HACK: Remove once fixed - https://github.com/dotnet/maui/issues/9446
 			if(BreadCrumbContainer.Width < BreadCrumbsScrollView.Width)
@@ -268,21 +272,43 @@ public partial class Breadcrumb : ContentView
 	/// </summary>
 	async void AnimatedStack_ChildAdded(object? sender, ElementEventArgs e)
 	{
-		// iOS scroll to end fix
-		if(DeviceInfo.Platform.Equals(DevicePlatform.iOS))
+		await Task.Run(async () =>
 		{
-			await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false);
-		}
+			while(BreadCrumbContainer.Children.LastOrDefault() is not View firstBreadcrumb || firstBreadcrumb.Width <= 0)
+			{
+				await Task.Delay(100);
+			}
 
-		Animation lastBreadcrumbAnimation = new()
-		{
-			{ 0, 1, new Animation(_ => ((View)BreadCrumbContainer.Children[^1]).TranslationX = _, Application.Current?.Windows[0].Page?.Width ?? 0, 0, Easing.Linear) }
-		};
+			// iOS scroll to end fix
+			if(DeviceInfo.Platform.Equals(DevicePlatform.iOS))
+			{
+				MainThread.BeginInvokeOnMainThread(async () => await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false));
+			}
 
-		Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children[^1], ScrollToPosition.End);
-		lastBreadcrumbAnimation.Add(0, 1, new Animation(_ => BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, true), BreadCrumbsScrollView.X, point.X - 6));
+			double lastBreadcrumbWidth = ((View)BreadCrumbContainer.Children[^1]).Width;
+			Animation lastBreadcrumbAnimation = new()
+			{
+				{ 0, 1, new Animation(_ => ((View)BreadCrumbContainer.Children[^1]).TranslationX = _, Application.Current?.Windows[0].Page?.Width - lastBreadcrumbWidth ?? 0, lastBreadcrumbWidth * -1, Easing.Linear) }
+			};
 
-		lastBreadcrumbAnimation.Commit(this, nameof(lastBreadcrumbAnimation), 16, AnimationSpeed);
+			Point point = BreadCrumbsScrollView.GetScrollPositionForElement((View)BreadCrumbContainer.Children[^1], ScrollToPosition.End);
+			lastBreadcrumbAnimation.Add(0, 1, new Animation(_ => BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, true), BreadCrumbsScrollView.X, point.X - 6));
+
+			MainThread.BeginInvokeOnMainThread(() => lastBreadcrumbAnimation.Commit(this, nameof(lastBreadcrumbAnimation), 16, AnimationSpeed));
+
+			double containerWidth = 0;
+			foreach(View view in BreadCrumbContainer.Children.Cast<View>())
+			{
+				containerWidth += view.Width;
+			}
+			containerWidth -= lastBreadcrumbWidth;
+
+			if(containerWidth > BreadCrumbContainer.WidthRequest)
+			{
+				MainThread.BeginInvokeOnMainThread(() => BreadCrumbContainer.WidthRequest = containerWidth);
+			}
+			MainThread.BeginInvokeOnMainThread(async () => await BreadCrumbsScrollView.ScrollToAsync((View?)BreadCrumbContainer.Children.LastOrDefault(), ScrollToPosition.MakeVisible, false));
+		});
 	}
 
 	/// <summary>
