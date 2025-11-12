@@ -5,7 +5,7 @@ on:
     types: [published]
     
 env:
-  NET_VERSION: 10.*.*
+  NET_VERSION: 10.0.100
   PROJECT_PATH: 'Scr/Breadcrumb.csproj'
   NUGET_PATH: './**/IeuanWalker.Maui.Breadcrumb.${{ github.event.release.tag_name }}.nupkg'
 
@@ -15,6 +15,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Display dotnet info
+      run: dotnet --info
     
     - name: Setup .NET ${{ env.NET_VERSION }}
       uses: actions/setup-dotnet@v4
@@ -24,6 +27,9 @@ jobs:
     - name: Install .NET MAUI ${{ env.NET_VERSION }}
       run: dotnet workload install maui --ignore-failed-sources
         
+    - name: Display dotnet info
+      run: dotnet --info
+
     - name: Restore dependencies
       run: dotnet restore ${{ env.PROJECT_PATH }}
       
