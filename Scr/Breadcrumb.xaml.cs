@@ -155,7 +155,7 @@ public partial class Breadcrumb : ContentView
 		BreadCrumbContainer.Loaded -= BreadCrumbContainer_Loaded;
 
 		// Get list of all pages in the NavigationStack that has a selectedPage title
-		List<Page> pages = Navigation.NavigationStack.Select(x => x).Where(x => !string.IsNullOrEmpty(x?.Title)).ToList();
+		List<Page> pages = [.. Navigation.NavigationStack.Select(x => x).Where(x => !string.IsNullOrEmpty(x?.Title))];
 
 		// If any pages, make the control visible
 		BreadCrumbsScrollView.IsVisible = pages.Count > 0;
@@ -332,13 +332,13 @@ public partial class Breadcrumb : ContentView
 		}
 
 		// Get all pages after and including selectedPage
-		List<Page> pages = Navigation.NavigationStack.SkipWhile(x => x != selectedPage).ToList();
+		List<Page> pages = [.. Navigation.NavigationStack.SkipWhile(x => x != selectedPage)];
 
 		// Remove selectedPage
 		pages.Remove(selectedPage);
 
 		// Remove current page (this will be removed with a PopAsync after all other relevant pages are removed)
-		pages = pages.Take(pages.Count - 1).ToList();
+		pages = [.. pages.Take(pages.Count - 1)];
 
 		// Remove all pages left in list (i.e. all pages after selectedPage, minus the current page)
 		foreach(Page page in pages)
