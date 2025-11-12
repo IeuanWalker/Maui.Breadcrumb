@@ -1,4 +1,4 @@
-name: Release
+﻿name: Release
 
 on:
   release:
@@ -10,7 +10,10 @@ env:
   NUGET_PATH: './**/IeuanWalker.Maui.Breadcrumb.${{ github.event.release.tag_name }}.nupkg'
 
 jobs:
-  build:
+  build-and-publish:
+    permissions:
+      id-token: write  # enable GitHub OIDC token issuance for this job
+
     runs-on: windows-latest
 
     steps:
@@ -42,7 +45,14 @@ jobs:
         path: ${{ env.NUGET_PATH }}
 
     - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.6
+      uses: NuGet/setup-nuget@v1.1.1
       
+      # Get a short-lived NuGet API key
+    - name: NuGet login (OIDC → temp API key)
+      uses: NuGet/login@v1
+      id: login
+      with:
+        user: Ieuan
+
     - name: Publish
-      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
+      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{steps.login.outputs.NUGET_API_KEY}} 
