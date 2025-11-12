@@ -8,7 +8,7 @@ on:
   schedule:
     - cron:  '0 0 1 */3 *'    # Every 3 months
 env:
-  NET_VERSION: 9.*.*
+  NET_VERSION: 10.*.*
   PROJECT_PATH: 'Scr/Breadcrumb.csproj'
   NUGET_PATH: './**/IeuanWalker.Maui.Breadcrumb.1.0.0.nupkg'
 
